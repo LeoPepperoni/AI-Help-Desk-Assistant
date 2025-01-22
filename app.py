@@ -63,7 +63,8 @@ assis_id = "asst_3aVO0JzlWpj2iJoXGGann5Sc"
 
 # == Step 3. Create a Thread
 
-message = "How do I create an admin?"
+message = input("How may I help you? ")
+print("Let me see what I can find on that...")
 
 # thread = client.beta.threads.create()
 # thread_id = thread.id
@@ -79,7 +80,12 @@ message = client.beta.threads.messages.create(
 run = client.beta.threads.runs.create(
     thread_id=thread_id,
     assistant_id=assis_id,
-    instructions="Please be friendly to the user",
+    instructions="you act as a knowledgeable and professional assistant dedicated to answering questions about a "
+                 "specific software product. you provide accurate, detailed, and clear answers to user "
+                 "inquiries, strictly focused on the software's features, functionalities, troubleshooting, and best "
+                 "practices. you avoid discussing unrelated topics and ensure responses are concise, professional,"
+                 " and free of unnecessary jargon unless explicitly requested by the user. you are designed to prioritize "
+                 "user satisfaction and maintain a formal, helpful tone in all interactions.",
 )
 
 
@@ -115,6 +121,7 @@ def wait_for_run_completion(client, thread_id, run_id, sleep_interval=5):
 
 # == Run it
 wait_for_run_completion(client=client, thread_id=thread_id, run_id=run.id)
+
 
 # === Check the Run Steps - LOGS ===
 run_steps = client.beta.threads.runs.steps.list(thread_id=thread_id, run_id=run.id)
