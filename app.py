@@ -16,6 +16,10 @@ client = openai.OpenAI()
 
 model = "gpt-4o-mini"  # "gpt-3.5-turbo-16k"
 
+# IMPORTANT To run this code you need to have the OpenAI API key in a .env file
+
+# This next step is strictly used for creating a new Bot and should not be needed unless we delete the old one
+
 # Step 1 - Create an assistant
 # assistant = client.beta.assistants.create(
 #     name="Help Desk Assistant",
@@ -34,8 +38,10 @@ model = "gpt-4o-mini"  # "gpt-3.5-turbo-16k"
 # print(assis_id)
 
 # == Hardcoded ids to be used once the first code run is done and the assistant was created
-thread_id = "thread_YY58aQAbZOd0VWOwn3lVWjnr"
-assis_id = "asst_3aVO0JzlWpj2iJoXGGann5Sc"
+thread_id = "thread_NMb1lynlOtySxHt5YIRlMJ1q"
+assis_id = "asst_j5tD1jRLTShB6jGJRkO4EuEX"
+
+# This block is used for uploading files to the OpenAI API
 
 # == Step 2. Upload files and add them to a Vector Store
 
